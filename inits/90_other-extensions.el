@@ -1,5 +1,5 @@
 ;;; 90_other-extensions.el ---
 
 ;; Expand region 
-(require 'expand-region)
+;(require 'expand-region)
 

@@ -22,7 +22,7 @@
 
 ; Leader lb - ido buffers lf - ido files
 (evil-leader/set-key "lb" 'ido-switch-buffer)
-(evil-leader/set-key "lB" 'helm-for-buffers)
+(evil-leader/set-key "lB" 'helm-list-buffers)
 
 (evil-leader/set-key "lf" 'ido-find-file)
 (evil-leader/set-key "lF" 'helm-for-files)
@@ -30,7 +30,6 @@
 ;Use <Leader>' to bring up emacs command mode with helm
 ;Should replace with single stroke, when I decide on one
 (evil-leader/set-key "'" 'helm-M-x)
-
 
 ;Can be used in all modes
 (defun move-line-down ()
@@ -66,5 +65,3 @@
 
 (global-set-key (kbd "<C-return>") 'open-line-below)
 (global-set-key (kbd "<C-S-return>") 'open-line-above)
-
-
