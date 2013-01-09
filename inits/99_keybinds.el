@@ -30,6 +30,10 @@
 ;Should replace with single stroke, when I decide on one
 (evil-leader/set-key "'" 'helm-M-x)
 
+(evil-leader/set-key
+  "ci" 'evilnc-comment-or-uncomment-lines
+  "cc" 'evilnc-comment-or-uncomment-to-the-line )
+
 ;;; esc quits
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
 (define-key evil-visual-state-map [escape] 'keyboard-quit)

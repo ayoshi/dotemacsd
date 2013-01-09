@@ -18,7 +18,7 @@
         evil
         evil-leader
         evil-surround
-        ;evil-nerd-commenter
+        evil-nerd-commenter
         helm
         solarized-theme
         expand-region
