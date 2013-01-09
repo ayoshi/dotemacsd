@@ -3,8 +3,12 @@
 (require 'slime-autoloads)
 (slime-setup '(slime-repl slime-fancy slime-banner slime-scratch))
 
+(add-hook 'slime-mode-hook 'enable-paredit-mode)
+(add-hook 'slime-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'slime-mode-hook 'pretty-mode)
+
 (set-language-environment "utf-8")
-(setq inferior-lisp-program "~/opt/ccl/lx86cl")
+(setq inferior-lisp-program "/usr/local/bin/ccl64")
 (setq slime-net-coding-system 'utf-8-unix)
 (add-hook 'slime-mode-hook
           (lambda ()
@@ -32,7 +36,7 @@
   ;; emacs-lispのインデントと混同しないように
   (setq lisp-indent-function
         (lambda (&rest args)
-          (apply (if (memq major-mode '(emacs-lisp-mode lisp-interaction-mode))
+          (apply (if (memq major-mode (emacs-lisp-mode lisp-interaction-mode))
                      'lisp-indent-function
                    'common-lisp-indent-function)
                  args))))

@@ -3,28 +3,43 @@
 (setq custom-file "~/.emacs.d/customize.el")
 (load custom-file t)           
 
+(setq inhibit-startup-message t) ;
+
+(when window-system
+  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
+  (add-hook 'before-make-frame-hook 'turn-off-tool-bar)
+  (tooltip-mode -1)
+  (mouse-wheel-mode t)
+  (blink-cursor-mode -1))
+
+
 (set-scroll-bar-mode 'right)    
-(setq frame-title-format (format "emacs@%s : %%f" (system-name))) 
 (tool-bar-mode 0)
-(menu-bar-mode 1)
+(menu-bar-mode t)
 (column-number-mode t) ;
 (which-function-mode 1) ;
-(setq inhibit-startup-message t) ;
 (show-paren-mode t)
+(scroll-bar-mode -1)
 
 (auto-compression-mode t)  ;
 (setq kill-whole-line t) ; 
 (setq default-tab-width 4)
 (setq scroll-step 1)    ; 
 (setq bookmark-save-flag 1)     
-(setq visible-bell t) 
 (setq-default indent-tabs-mode nil)  
 (setq require-final-newline t)
 (setq redisplay-dont-pause t) 
+
+;Disable useleess annoyng beeps on scroll
+(setq ring-bell-function 'ignore)
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; avoid "Symbolic link to SVN-controlled source file; follow link? (yes or no)"
 (setq vc-follow-symlinks t)
+
+;; Make backups of files, even when they're in version control
+(setq vc-make-backup-files t)
 
 (progn
   (setq make-backup-files t)
@@ -36,7 +51,20 @@
   (setq kept-old-versions 2) 
   (setq delete-old-versions t)
   )
-(setq auto-save-default t)
+
+;; Save point position between sessions
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file (expand-file-name ".places" user-emacs-directory))
+
+;; Auto refresh buffers
+(global-auto-revert-mode 1)
+
+;; Also auto refresh dired, but be quiet about it
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+
+
 
 ;; @see: http://d.hatena.ne.jp/mooz/20110107/p1
 (let ((dropbox-directory (expand-file-name "~/Dropbox/"))
@@ -57,3 +85,8 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 (setq save-abbrevs 'silently)
+
+;; Save a list of recent files visited.
+(recentf-mode 1)
+
+

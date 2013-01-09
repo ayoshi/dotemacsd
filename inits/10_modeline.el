@@ -1,32 +1,18 @@
 ;;; 10_modeline.el ---
 ;; @see: http://yukihr.github.com/blog/2012/04/27/neat-emacs-modeline/
 
+;; Mode line setup
 (setq-default
- mode-line-position
- '(
-   " "
-   ;; Position, including warning for 80 columns
-   (:propertize "%4l" face mode-line-position-face)
-   (:propertize "/" face mode-line-delim-face-1)
-   (:eval
-    (number-to-string (count-lines (point-min) (point-max))))
-   " "
+ mode-line-format
+ '(; Position, including warning for 80 columns
+   (:propertize "%4l:" face mode-line-position-face)
    (:eval (propertize "%3c" 'face
                       (if (>= (current-column) 80)
                           'mode-line-80col-face
                         'mode-line-position-face)))
-   " "
-   ))
-
-(setq-default
- mode-line-format
- '("%e"
-   mode-line-mule-info
-   ;; emacsclient [default -- keep?]
+   ; emacsclient [default -- keep?]
    mode-line-client
-   mode-line-remote
-   ;evil-mode-line-tag
-   mode-line-position
+   " "
    ; read-only or modified status
    (:eval
     (cond (buffer-read-only
@@ -35,29 +21,28 @@
            (propertize " ** " 'face 'mode-line-modified-face))
           (t " ")))
    " "
-   ;; directory and buffer/file name
+   ; directory and buffer/file name
    (:propertize (:eval (shorten-directory default-directory 30))
                 face mode-line-folder-face)
-   (:propertize "%b" face mode-line-filename-face)
-   ;; narrow [default -- keep?]
-   " %n"
-   ;; mode indicators: vc, recursive edit, major mode, minor modes, process, global
+   (:propertize "%b"
+                face mode-line-filename-face)
+   ; narrow [default -- keep?]
+   " %n "
+   ; mode indicators: vc, recursive edit, major mode, minor modes, process, global
    (vc-mode vc-mode)
    " %["
    (:propertize mode-name
                 face mode-line-mode-face)
-   "%]"
+   "%] "
    (:eval (propertize (format-mode-line minor-mode-alist)
                       'face 'mode-line-minor-mode-face))
-   " "
    (:propertize mode-line-process
                 face mode-line-process-face)
    (global-mode-string global-mode-string)
-   ;; " "
-   ;; nyan-mode uses nyan cat as an alternative to %p
-   ;; (:eval (when nyan-mode (list (nyan-create))))
+   " "
+   ; nyan-mode uses nyan cat as an alternative to %p
+   ;(:eval (when nyan-mode (list (nyan-create))))
    ))
-
 
 ;; Helper function
 (defun shorten-directory (dir max-length)
@@ -73,22 +58,6 @@
       (setq output (concat ".../" output)))
     output))
 
-
-
-(set-face-attribute 'mode-line nil
-    :foreground "gray80" :background "gray10"
-    :inverse-video nil
-    :weight 'normal
-    :height 120
-    :box '(:line-width 2 :color "gray10" :style nil))
-(set-face-attribute 'mode-line-inactive nil
-    :foreground "gray80" :background "gray30"
-    :inverse-video nil
-    :weight 'extra-light
-    :height 120
-    :box '(:line-width 2 :color "gray30" :style nil))
-
-
 ;; Extra mode line faces
 (make-face 'mode-line-read-only-face)
 (make-face 'mode-line-modified-face)
@@ -99,42 +68,44 @@
 (make-face 'mode-line-minor-mode-face)
 (make-face 'mode-line-process-face)
 (make-face 'mode-line-80col-face)
-(make-face 'mode-line-delim-face-1)
 
+(set-face-attribute 'mode-line nil
+    :foreground "gray60"
+    :inverse-video nil
+    :box '(:line-width 1 :color "gray20" :style nil))
+(set-face-attribute 'mode-line-inactive nil
+    :foreground "gray80"
+    :inverse-video nil
+    :box '(:line-width 1 :color "gray10" :style nil))
 (set-face-attribute 'mode-line-read-only-face nil
     :inherit 'mode-line-face
-    :foreground "#4271ae"
+  ; :foreground "#4271ae"
     :box '(:line-width 2 :color "#4271ae"))
 (set-face-attribute 'mode-line-modified-face nil
     :inherit 'mode-line-face
-    :foreground "#c82829"
-    :background "#ffffff"
+  ; :foreground "#c82829"
+  ; :background "#ffffff"
     :box '(:line-width 2 :color "#c82829"))
 (set-face-attribute 'mode-line-folder-face nil
     :inherit 'mode-line-face
-    :weight 'extra-light
-    :height 110
-    :foreground "gray90")
+    :foreground "gray60")
 (set-face-attribute 'mode-line-filename-face nil
     :inherit 'mode-line-face
     :foreground "#eab700"
     :weight 'bold)
 (set-face-attribute 'mode-line-position-face nil
     :inherit 'mode-line-face
-    :family "Menlo")
+    :family "Menlo" :height 100)
 (set-face-attribute 'mode-line-mode-face nil
     :inherit 'mode-line-face
-    :foreground "white")
+    :foreground "gray80")
 (set-face-attribute 'mode-line-minor-mode-face nil
     :inherit 'mode-line-mode-face
-    :foreground "gray60"
-    :height 100)
+    :foreground "gray40"
+    :height 110)
 (set-face-attribute 'mode-line-process-face nil
     :inherit 'mode-line-face
     :foreground "#718c00")
 (set-face-attribute 'mode-line-80col-face nil
     :inherit 'mode-line-position-face
     :foreground "black" :background "#eab700")
-(set-face-attribute 'mode-line-delim-face-1 nil
-    :inherit 'mode-line-face
-    :foreground "white")

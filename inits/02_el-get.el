@@ -51,6 +51,9 @@
         emacs-git-gutter
         dired-sort
         auto-complete
+        multiple-cursors
+        anything
+        anything-config
         ))
 
 (el-get 'sync my-packages)

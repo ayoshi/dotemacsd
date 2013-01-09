@@ -2,6 +2,7 @@
 
 (add-hook 'scheme-mode-hook 'enable-paredit-mode)
 (add-hook 'scheme-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'scheme-mode-hook 'pretty-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; auto-complete
@@ -24,3 +25,5 @@
   (init-racket-setup-ac-sources))
 
 (add-hook 'scheme-mode-hook 'init-racket-mode-hook)
+
+(setq geiser-racket-binary "/usr/local/bin/racket")
