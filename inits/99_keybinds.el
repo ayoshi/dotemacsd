@@ -3,7 +3,6 @@
 ;Escape should quit whatever it can
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-
 (global-set-key (kbd "M-t") nil)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -25,7 +24,7 @@
 (evil-leader/set-key "lB" 'helm-list-buffers)
 
 (evil-leader/set-key "lf" 'ido-find-file)
-(evil-leader/set-key "lF" 'helm-for-files)
+(evil-leader/set-key "lF" 'helm-find-files)
 
 ;Use <Leader>' to bring up emacs command mode with helm
 ;Should replace with single stroke, when I decide on one

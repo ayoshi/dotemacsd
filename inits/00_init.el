@@ -4,18 +4,18 @@
 (load custom-file t)           
 
 (setq inhibit-startup-message t) ;
+(tool-bar-mode 0)
+(menu-bar-mode 0)
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
   (add-hook 'before-make-frame-hook 'turn-off-tool-bar)
   (tooltip-mode -1)
+  (menu-bar-mode 1)
   (mouse-wheel-mode t)
   (blink-cursor-mode -1))
 
-
 (set-scroll-bar-mode 'right)    
-(tool-bar-mode 0)
-(menu-bar-mode t)
 (column-number-mode t) ;
 (which-function-mode 1) ;
 (show-paren-mode t)
@@ -88,5 +88,3 @@
 
 ;; Save a list of recent files visited.
 (recentf-mode 1)
-
-

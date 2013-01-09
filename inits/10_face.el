@@ -3,10 +3,15 @@
 (add-to-list 'default-frame-alist '(height . 50))
 (add-to-list 'default-frame-alist '(width . 150))
 
-(transient-mark-mode t) 
-(setq show-paren-style 'mixed) 
+(if (string-equal system-type "darwin")
+    (set-fontset-font "fontset-default"
+                      'unicode
+                      '("Menlo" . "iso10646-1")))
 
-(setq-default indicate-empty-lines t)
+(transient-mark-mode t)
+(setq show-paren-style 'mixed)
+
+(setq-default indicate-empty-lines 0)
 (set-face-foreground 'fringe "white")
 
 (setq custom-theme-directory "~/.emacs.d/themes/")
