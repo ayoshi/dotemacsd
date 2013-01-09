@@ -3,11 +3,6 @@
 (add-to-list 'default-frame-alist '(height . 50))
 (add-to-list 'default-frame-alist '(width . 150))
 
-(if (string-equal system-type "darwin")
-    (set-fontset-font "fontset-default"
-                      'unicode
-                      '("Menlo" . "iso10646-1")))
-
 (transient-mark-mode t)
 (setq show-paren-style 'mixed)
 
@@ -16,3 +11,6 @@
 
 (setq custom-theme-directory "~/.emacs.d/themes/")
 (load-theme 'solarized-dark)
+
+(set-face-attribute 'default nil
+                :family "Inconsolata" :height 146 :weight 'normal)
