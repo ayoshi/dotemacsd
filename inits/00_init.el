@@ -1,7 +1,9 @@
 ;;; 00_init.el ---
 
-(setq custom-file "~/.emacs.d/customize.el")
-(load custom-file t)           
+(setq dotfiles-dir "~/.emacs.d/")
+
+(setq custom-file (concat dotfiles-dir "customize.el"))
+(load custom-file t)
 
 (setq inhibit-startup-message t) ;
 (tool-bar-mode 0)
@@ -15,20 +17,20 @@
   (mouse-wheel-mode t)
   (blink-cursor-mode -1))
 
-(set-scroll-bar-mode 'right)    
+(set-scroll-bar-mode 'right)
 (column-number-mode t) ;
 (which-function-mode 1) ;
 (show-paren-mode t)
 (scroll-bar-mode -1)
 
 (auto-compression-mode t)  ;
-(setq kill-whole-line t) ; 
+(setq kill-whole-line t) ;
 (setq default-tab-width 4)
-(setq scroll-step 1)    ; 
-(setq bookmark-save-flag 1)     
-(setq-default indent-tabs-mode nil)  
+(setq scroll-step 1)    ;
+(setq bookmark-save-flag 1)
+(setq-default indent-tabs-mode nil)
 (setq require-final-newline t)
-(setq redisplay-dont-pause t) 
+(setq redisplay-dont-pause t)
 
 ;Disable useleess annoyng beeps on scroll
 (setq ring-bell-function 'ignore)
@@ -43,12 +45,16 @@
 
 (progn
   (setq make-backup-files t)
-  (setq backup-directory-alist
-        (cons (cons "\\.*$" (expand-file-name "~/.emacs.d/backup"))
-              backup-directory-alist))
+  ;; Don't clutter up directories with files~
+  (setq backup-directory-alist `(("." . ,(expand-file-name
+                                          (concat dotfiles-dir "backups")))))
+
+  ;; Don't clutter with #files either
+  (setq auto-save-file-name-transforms
+        `((".*" ,(expand-file-name (concat dotfiles-dir "backups")))))
   (setq version-control t)
-  (setq kept-new-versions 2) 
-  (setq kept-old-versions 2) 
+  (setq kept-new-versions 2)
+  (setq kept-old-versions 2)
   (setq delete-old-versions t)
   )
 
