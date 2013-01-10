@@ -13,6 +13,7 @@ customize.el
 
 ## directories
 backup/*
+backups/*
 thumbs/*
 oddmuse/*
 eshell/*
