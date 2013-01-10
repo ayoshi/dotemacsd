@@ -43,12 +43,12 @@
 ;(define-key minibuffer-local-map [escape] 'keyboard-quit)
 ;(define-key minibuffer-local-ns-map [escape] 'keyboard-quit)
 ;(define-key minibuffer-local-completion-map [escape] 'keyboard-quit)
-;(define-key minibuffer-local-must-match-map [escape] 'keyboard-quit)
+
+                                        ;(define-key minibuffer-local-must-match-map [escape] 'keyboard-quit)
 ;(define-key minibuffer-local-isearch-map [escape] 'keyboard-quit)
 
 ; Make  <Leader>e prefix for eval commands in all modes
 (evil-leader/set-key
-  "eb" 'eval-buffer
-  "es" 'eval-last-sexp
-  "ed" 'eval-defun
-  "ee" 'eval-expression )
+  "eb" 'smart-eval-buffer
+  "es" 'smart-eval-last-sexp
+  "ed" 'smart-eval-defun)
