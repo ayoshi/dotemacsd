@@ -41,6 +41,7 @@
         zencoding-mode
         moz-repl
         scss-mode
+        smart-tab
         ruby-block
         ruby-end
         haskell-mode
