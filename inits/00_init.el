@@ -83,8 +83,8 @@
 
 (setq dabbrev-case-fold-search nil)
 
-(if (string< "23.2" emacs-version)
-    (set-frame-parameter nil 'fullscreen 'maximized))
+;(if (string< "23.2" emacs-version)
+    ;(set-frame-parameter nil 'fullscreen 'maximized))
 
 (setq bookmark-default-file "~/.emacs.d/.emacs.bmk")
 
