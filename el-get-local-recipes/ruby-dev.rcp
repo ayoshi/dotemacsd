@@ -1,0 +1,6 @@
+(:name evil
+       :website "http://gitorious.org/evil/pages/Home"
+       :description "ruby-dev.el is a module that tries to bring some of SLIME's features to Ruby"
+       :type git
+       :url "git://github.com/Mon-Ouie/ruby-dev.el.git"
+       :features ruby-dev)

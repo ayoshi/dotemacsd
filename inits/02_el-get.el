@@ -38,6 +38,7 @@
         rainbow-delimiters-github
         rinari
         rhtml-mode
+        ;;ruby-dev
         zencoding-mode
         moz-repl
         scss-mode

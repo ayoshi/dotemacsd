@@ -2,6 +2,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ruby-mode
+
+
 (autoload 'ruby-mode "ruby-mode" "Mode for editing ruby source files" t)
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
@@ -88,3 +90,7 @@ and source-file directory for your debugger." t)
           (lambda () (rinari-launch)))
 
 ;(require 'anything-refe)
+
+;; Not working correctly yet
+;(autoload 'turn-on-ruby-dev "ruby-dev" nil t)
+;(add-hook 'ruby-mode-hook 'turn-on-ruby-dev)
