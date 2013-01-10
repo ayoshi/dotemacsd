@@ -9,5 +9,8 @@
 (require 'evil-leader)
 (evil-leader/set-leader (kbd ";"))
 
+
+(setq evil-mode-line-format nil)
+
 ;(require 'surround)
 ;(global-surround-mode 1)

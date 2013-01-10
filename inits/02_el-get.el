@@ -14,11 +14,12 @@
 
 (setq my-packages
       '(el-get
-        undo-tree 
+        undo-tree
         evil
         evil-leader
         evil-surround
         evil-nerd-commenter
+        fringe-helper
         helm
         solarized-theme
         expand-region

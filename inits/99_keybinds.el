@@ -1,4 +1,7 @@
-;;; 01_keybinds.el ---
+;; ;;; 01_keybinds.el ---
+
+; Use Shift-arrows to move around splits
+(windmove-default-keybindings)
 
 ;Escape should quit whatever it can
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -21,7 +24,7 @@
 
 ; Leader lb - ido buffers lf - ido files
 (evil-leader/set-key "lb" 'ido-switch-buffer)
-(evil-leader/set-key "lB" 'helm-list-buffers)
+(evil-leader/set-key "lB" 'helm-buffers-list)
 
 (evil-leader/set-key "lf" 'ido-find-file)
 (evil-leader/set-key "lF" 'helm-find-files)
@@ -43,3 +46,9 @@
 ;(define-key minibuffer-local-must-match-map [escape] 'keyboard-quit)
 ;(define-key minibuffer-local-isearch-map [escape] 'keyboard-quit)
 
+; Make  <Leader>e prefix for eval commands in all modes
+(evil-leader/set-key
+  "eb" 'eval-buffer
+  "es" 'eval-last-sexp
+  "ed" 'eval-defun
+  "ee" 'eval-expression )
