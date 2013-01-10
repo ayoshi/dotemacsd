@@ -14,3 +14,19 @@
 
 ;(require 'surround)
 ;(global-surround-mode 1)
+
+;Disable evil in special buffers
+(loop for (mode . state) in '((inferior-emacs-lisp-mode . emacs)
+                              (pylookup-mode . emacs)
+                              (comint-mode . emacs)
+                              (ebib-entry-mode . emacs)
+                              (ebib-index-mode . emacs)
+                              (ebib-log-mode . emacs)
+                              (gtags-select-mode . emacs)
+                              (shell-mode . emacs)
+                              (term-mode . emacs)
+                              (bc-menu-mode . emacs)
+                              (magit-branch-manager-mode . emacs)
+                              (semantic-symref-results-mode . emacs)
+                              (rdictcc-buffer-mode . emacs))
+      do (evil-set-initial-state mode state))
