@@ -9,6 +9,8 @@
 (require 'evil-leader)
 (evil-leader/set-leader (kbd ";"))
 
+; Defulat  of evil should be on
+(setq evil-default-state 'normal)
 
 (setq evil-mode-line-format nil)
 
