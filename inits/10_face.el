@@ -10,7 +10,7 @@
 (set-face-foreground 'fringe "white")
 
 (setq custom-theme-directory "~/.emacs.d/themes/")
-(load-theme 'solarized-light)
+(load-theme 'solarized-dark)
 
 (set-face-attribute 'default nil
                 :family "Inconsolata" :height 140 :weight 'normal)

@@ -29,6 +29,8 @@
 (evil-leader/set-key "lf" 'ido-find-file)
 (evil-leader/set-key "lF" 'helm-find-files)
 
+(evil-leader/set-key "lr" 'recentf-ido-find-file)
+
 ;Use <Leader>' to bring up emacs command mode with helm
 ;Should replace with single stroke, when I decide on one
 (evil-leader/set-key "'" 'helm-M-x)
@@ -55,4 +57,3 @@
   "?" 'smart-doc-symbol-at-point)
 
 (define-key evil-normal-state-map (kbd "?") 'smart-doc-symbol-at-point)
-
