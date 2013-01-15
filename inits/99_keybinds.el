@@ -51,4 +51,8 @@
 (evil-leader/set-key
   "eb" 'smart-eval-buffer
   "es" 'smart-eval-last-sexp
-  "ed" 'smart-eval-defun)
+  "ed" 'smart-eval-defun
+  "?" 'smart-doc-symbol-at-point)
+
+(define-key evil-normal-state-map (kbd "?") 'smart-doc-symbol-at-point)
+
