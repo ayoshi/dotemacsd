@@ -46,8 +46,8 @@
 (progn
   (setq make-backup-files t)
 
-  (defvar backup-dir (expand-file-name "~/.emacs.d/backup/"))
-  (defvar autosave-dir (expand-file-name "~/.emacs.d/backup/"))
+  (defvar backup-dir (expand-file-name (concat dotfiles-dir "backup/")))
+  (defvar autosave-dir (expand-file-name (concat dotfiles-dir "backup/")))
   (setq backup-directory-alist (list (cons ".*" backup-dir)))
   (setq auto-save-list-file-prefix autosave-dir)
   (setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
@@ -68,8 +68,6 @@
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
-
-
 ;; @see: http://d.hatena.ne.jp/mooz/20110107/p1
 (let ((dropbox-directory (expand-file-name "~/Dropbox/"))
       (destination-directory temporary-file-directory))
@@ -84,7 +82,7 @@
 ;(if (string< "23.2" emacs-version)
     ;(set-frame-parameter nil 'fullscreen 'maximized))
 
-(setq bookmark-default-file "~/.emacs.d/.emacs.bmk")
+(setq bookmark-default-file (concat dotfiles-dir ".emacs.bmk"))
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
