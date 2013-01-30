@@ -19,21 +19,17 @@
                         (mode . gnus-article-mode)
                         (name . "^\\.bbdb$")
                         (name . "^\\.newsrc-dribble")))))))
+
 (add-hook 'ibuffer-mode-hook
           '(lambda ()
              (ibuffer-switch-to-saved-filter-groups "default")))
 
-;; filter(上記)でマッチしない場合は、フィルタグループを表示しない
+;; Hide empty groups
 (setq ibuffer-show-empty-filter-groups nil)
 
-;; ディレクトリの表示の短縮
-(setq ibuffer-directory-abbrev-alist
-      '(("^/ssh:\\([a-zA-Z]+\\)@figaro:/home/\\1/" . "figaro:~/")))
-
-;; 表示しないバッファの設定 (for emacs23.2 ?)
+;; Hide special buffers
 (require 'ibuf-ext)
-(add-to-list 'ibuffer-never-show-predicates "^\\*tramp/ssh")
-(add-to-list 'ibuffer-never-show-predicates "^\\*helm[\\* ]")
+(add-to-list 'ibuffer-never-show-predicates "^\\*")
 
 (add-hook 'ibuffer-hook
           '(lambda ()
@@ -44,3 +40,33 @@
 (add-hook 'ibuffer-mode-hook
           '(lambda ()
              (hl-line-mode t)))
+
+; Integrate VC status
+(add-hook 'ibuffer-hook
+          (lambda ()
+            (ibuffer-vc-set-filter-groups-by-vc-root)
+            (unless (eq ibuffer-sorting-mode 'alphabetic)
+              (ibuffer-do-sort-by-alphabetic))))
+
+
+(setq ibuffer-formats
+      '((mark modified read-only vc-status-mini " "
+              (name 18 18 :left :elide)
+              (mode 16 16 :left :elide)
+              (vc-status 16 16 :left)
+              filename-and-process)))
+
+;;Remove title and summary
+(defadvice ibuffer-update-title-and-summary (after remove-column-titles)
+  (save-excursion
+    (set-buffer "*Ibuffer*")
+    (toggle-read-only 0)
+    (goto-char 1)
+    (search-forward "-\n" nil t)
+    (delete-region 1 (point))
+    (let ((window-min-height 1))
+      ;; save a little screen estate
+      (shrink-window-if-larger-than-buffer))
+    (toggle-read-only)))
+
+(ad-activate 'ibuffer-update-title-and-summary)
