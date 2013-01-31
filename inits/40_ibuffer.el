@@ -42,21 +42,29 @@
              (hl-line-mode t)))
 
 ; Integrate VC status
+
 (add-hook 'ibuffer-hook
           (lambda ()
             (ibuffer-vc-set-filter-groups-by-vc-root)
             (unless (eq ibuffer-sorting-mode 'alphabetic)
               (ibuffer-do-sort-by-alphabetic))))
 
-
 (setq ibuffer-formats
-      '((mark modified read-only vc-status-mini " "
-              (name 18 18 :left :elide)
-              (mode 16 16 :left :elide)
-              (vc-status 16 16 :left)
+      '((mark modified read-only
+              (vc-status-mini 2 2 :left :elide) " "
+              (name 30 30 :left :elide) " "
+              (vc-status 16 9 :right) " "
+              (mode 16 -1 :left :elide) " "
+              filename-and-process)
+        (mark modified read-only
+              (vc-status-mini 2 2 :left :elide) " "
+              (name 45 -1 :left) " "
+              filename-and-process)
+        (mark modified read-only
+              (vc-status-mini 2 2 :left :elide) " "
               filename-and-process)))
 
-;;Remove title and summary
+;Remove title and summary
 (defadvice ibuffer-update-title-and-summary (after remove-column-titles)
   (save-excursion
     (set-buffer "*Ibuffer*")
