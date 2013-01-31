@@ -1,6 +1,6 @@
 ;;; 40_ibuffer.el
-;; 参考: http://www.emacswiki.org/emacs/IbufferMode
-;;     : http://martinowen.net/blog/2010/02/tips-for-emacs-ibuffer.html
+;;  : Http://www.emacswiki.org/emacs/IbufferMode
+;;  : http://martinowen.net/blog/2010/02/tips-for-emacs-ibuffer.html
 (setq ibuffer-saved-filter-groups
       (quote (("default"
                ("dired" (mode . dired-mode))
@@ -35,7 +35,6 @@
           '(lambda ()
              (local-unset-key (kbd "C-k"))))
 
-;; カーソルの行に色をつける
 (require 'hl-line)
 (add-hook 'ibuffer-mode-hook
           '(lambda ()
@@ -78,3 +77,13 @@
     (toggle-read-only)))
 
 (ad-activate 'ibuffer-update-title-and-summary)
+
+;Some colorization
+(setq ibuffer-dired-buffer-face 'font-lock-function-name-face)
+(setq ibuffer-help-buffer-face 'font-lock-comment-face)
+(setq ibuffer-hidden-buffer-face 'font-lock-warning-face)
+(setq ibuffer-occur-match-face 'font-lock-warning-face)
+(setq ibuffer-read-only-buffer-face 'font-lock-type-face)
+(setq ibuffer-special-buffer-face 'font-lock-keyword-face)
+(setq ibuffer-title-face 'font-lock-warning-face)
+(setq ibuffer-filter-group-name-face 'font-lock-function-name-face)
