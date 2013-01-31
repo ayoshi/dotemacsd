@@ -36,6 +36,7 @@
         pretty-mode
         nyan-mode
         rainbow-delimiters-github
+        rainbow-mode
         rinari
         rhtml-mode
         ;;ruby-dev
