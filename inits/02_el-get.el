@@ -44,6 +44,7 @@
         moz-repl
         scss-mode
         smart-tab
+        ibuffer-vc
         ruby-block
         ruby-end
         haskell-mode
@@ -57,6 +58,7 @@
         auto-complete
         multiple-cursors
         anything
+        smex
         anything-config
         ))
 
