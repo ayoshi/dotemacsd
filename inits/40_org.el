@@ -82,3 +82,8 @@
            (loop for e in '(".dvi" ".tex" ".aux" ".log" ".png") do
                  (delete-file (concat texfilebase e)))
            pngfile)))))
+
+
+
+;; Fontify org-mode code blocks
+(setq org-src-fontify-natively t)

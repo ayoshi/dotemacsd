@@ -6,3 +6,18 @@
 
 ; Disable end-of-buffer indicator
 (setq-default  indicate-buffer-boundaries nil)
+
+; Want rainbow delimiters everywhere
+(global-rainbow-delimiters-mode t)
+
+; Smooth scolling
+(smooth-scroll-mode t)
+
+
+;; Represent undo-history as an actual tree
+(setq undo-tree-mode-lighter "")
+(global-undo-tree-mode)
+
+; Uniquify buffer names for same filenames in different subdirs using dir/filename
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)

@@ -1,6 +1,16 @@
 ;;; 00_init.el ---
 
+(setq locale-coding-system 'utf-8) ; pretty
+(set-terminal-coding-system 'utf-8) ; pretty
+(set-keyboard-coding-system 'utf-8) ; pretty
+(set-selection-coding-system 'utf-8) ; please
+(prefer-coding-system 'utf-8) ; with sugar on top
+
 (setq dotfiles-dir "~/.emacs.d/")
+
+;; make sure path is correct when launched as application
+(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+(push "/usr/local/bin" exec-path)
 
 (setq custom-file (concat dotfiles-dir "customize.el"))
 (load custom-file t)
@@ -26,11 +36,22 @@
 (auto-compression-mode t)  ;
 (setq kill-whole-line t) ;
 (setq default-tab-width 4)
+
+;; Lines should be 80 characters wide, not 72
+(setq fill-column 80)
+
 (setq scroll-step 1)    ;
 (setq bookmark-save-flag 1)
 (setq-default indent-tabs-mode nil)
 (setq require-final-newline t)
 (setq redisplay-dont-pause t)
+
+
+;; Easily navigate sillycased words
+(global-subword-mode 1)
+
+;; Answering just 'y' or 'n' will do
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;Disable useleess annoyng beeps on scroll
 (setq ring-bell-function 'ignore)
@@ -88,5 +109,19 @@
 
 (setq save-abbrevs 'silently)
 
-;; Save a list of recent files visited.
+;; Save a list of recent files visited. (open recent file with C-x f)
 (recentf-mode 1)
+(setq recentf-max-saved-items 100) ;; just 20 is too recent
+
+
+
+
+;; Move to trash when deleting stuff
+(setq delete-by-moving-to-trash t
+      trash-directory "~/.Trash/emacs")
+
+;; Don't open files from the workspace in a new frame
+(setq ns-pop-up-frames nil)
+
+;; Don't show keystrokes in progress - annoys me to no end
+(setq echo-keystrokes 0)

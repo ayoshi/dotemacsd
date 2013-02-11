@@ -9,7 +9,11 @@
 (setq ido-use-filename-at-point 'guess)
 
 ;; Hide all service buffers
-(add-to-list 'ido-ignore-buffers "^\**\*")
+;(add-to-list 'ido-ignore-buffers "^\**\*$")
+
+
+;; Ignore .DS_Store files with ido mode
+(add-to-list 'ido-ignore-files "\\.DS_Store")
 
 ;; Add Smex
 ; Call smex-initialize when it's needed

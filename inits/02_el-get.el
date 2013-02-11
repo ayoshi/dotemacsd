@@ -60,6 +60,7 @@
         anything
         smex
         anything-config
+        smooth-scroll
         ))
 
 (el-get 'sync my-packages)
