@@ -19,4 +19,4 @@
 (eval-after-load "lisp-mode" '(setup-paredit-for-mode-map emacs-lisp-mode-map))
 (eval-after-load "clojure-mode" '(setup-paredit-for-mode-map clojure-mode-map))
 (eval-after-load "scheme-mode" '(setup-paredit-for-mode-map clojure-mode-map))
-(eval-after-load "emacs-lisp-mode" ('setup-paredit-for-mode-map clojure-mode-map))
+(eval-after-load "emacs-lisp-mode" '(setup-paredit-for-mode-map clojure-mode-map))
