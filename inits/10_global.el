@@ -12,7 +12,8 @@
 
 ; Smooth scolling
 (smooth-scroll-mode t)
-
+; On carbon default 2 make scrolling slow
+(setq smooth-scroll/vscroll-step-size 4)
 
 ;; Represent undo-history as an actual tree
 (setq undo-tree-mode-lighter "")
