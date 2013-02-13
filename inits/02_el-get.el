@@ -61,6 +61,7 @@
         smex
         anything-config
         smooth-scroll
+        python
         ))
 
 (el-get 'sync my-packages)

@@ -2,13 +2,17 @@
 ;;
 ;; Here we will set eval commands for all language REPLs to the smart eval
 ;; commands
-;; We will also unify other commands
+;; We will also unify other commands - like doc-symbol
 
 ;; Reset bidings
 (defvar smart-eval-last-exp-command #'undefined)
 (defvar smart-eval-defun-command #'undefined)
 (defvar smart-eval-buffer-command #'undefined)
+(defvar smart-eval-file-command #'undefined)
+(defvar smart-eval-region-command #'undefined)
 (defvar smart-doc-symbol-at-point #'undefined)
+
+;;;;;;;;;;;;; Define types of commands
 
 ;; Eval last exp
 (defun smart-eval-last-exp ()
@@ -24,6 +28,15 @@
 (defun smart-eval-buffer ()
   (interactive)
   (call-interactively smart-eval-buffer-command))
+
+;; Eval file
+(defun smart-eval-file ()
+  (interactive)
+  (call-interactively smart-eval-file-command))
+
+(defun smart-eval-region ()
+  (interactive)
+  (call-interactively smart-eval-region-command))
 
 ;; Show doc on symbol at point
 (defun smart-doc-symbol-at-point ()
@@ -53,3 +66,14 @@
           (lambda () (set (make-local-variable 'smart-eval-defun-command) #'geiser-eval-definition)))
 (add-hook 'scheme-mode-hook
           (lambda () (set (make-local-variable 'smart-doc-symbol-at-point-command) #'geiser-doc-symbol-at-point)))
+
+;; python.el ( Python )
+
+(add-hook 'python-mode-hook
+          (lambda () (set (make-local-variable 'smart-eval-last-exp-command) #'python-shell-send-string)))
+(add-hook 'python-mode-hook
+          (lambda () (set (make-local-variable 'smart-eval-defun-command) #'python-shell-send-defun)))
+(add-hook 'python-mode-hook
+          (lambda () (set (make-local-variable 'smart-eval-buffer-command) #'python-shell-send-buffer)))
+(add-hook 'python-mode-hook
+          (lambda () (set (make-local-variable 'smart-eval-region-command) #'python-shell-send-region)))
