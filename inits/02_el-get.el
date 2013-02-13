@@ -61,7 +61,10 @@
         smex
         anything-config
         smooth-scroll
-        python
+        python-mode
+        ropemacs
+        pymacs
+        flymake
         ))
 
 (el-get 'sync my-packages)
