@@ -62,6 +62,7 @@
         anything-config
         smooth-scroll
         python
+        exec-path-from-shell
         ))
 
 (el-get 'sync my-packages)

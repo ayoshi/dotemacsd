@@ -23,3 +23,5 @@
 
 ;; Function to set virtualenv PATH
 ;; (setq python-shell-virtualenv-path "/path/to/env/")
+
+(add-hook 'python-mode-hook 'jedi:setup)

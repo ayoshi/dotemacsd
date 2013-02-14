@@ -77,3 +77,5 @@
           (lambda () (set (make-local-variable 'smart-eval-buffer-command) #'python-shell-send-buffer)))
 (add-hook 'python-mode-hook
           (lambda () (set (make-local-variable 'smart-eval-region-command) #'python-shell-send-region)))
+(add-hook 'python-mode-hook
+          (lambda () (set (make-local-variable 'smart-doc-symbol-at-point-command) #'jedi:show-doc)))
