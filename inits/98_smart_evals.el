@@ -70,10 +70,10 @@
 ;; python.el ( Python )
 
 (add-hook 'python-mode-hook
-          (lambda () (set (make-local-variable 'smart-eval-last-exp-command) #'python-shell-send-string)))
+          (lambda () (set (make-local-variable 'smart-eval-last-exp-command) #'py-exec-epression)))
 (add-hook 'python-mode-hook
-          (lambda () (set (make-local-variable 'smart-eval-defun-command) #'python-shell-send-defun)))
+          (lambda () (set (make-local-variable 'smart-eval-defun-command) #'py-exex-definition)))
 (add-hook 'python-mode-hook
-          (lambda () (set (make-local-variable 'smart-eval-buffer-command) #'python-shell-send-buffer)))
+          (lambda () (set (make-local-variable 'smart-eval-buffer-command) #'py-exec-buffer)))
 (add-hook 'python-mode-hook
-          (lambda () (set (make-local-variable 'smart-eval-region-command) #'python-shell-send-region)))
+          (lambda () (set (make-local-variable 'smart-eval-region-command) #'py-exec-region)))

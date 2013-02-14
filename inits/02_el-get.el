@@ -65,6 +65,7 @@
         ropemacs
         pymacs
         flymake
+        exec-path-from-shell
         ))
 
 (el-get 'sync my-packages)

@@ -1,0 +1,6 @@
+(:name exec-path-from-shell
+       :website "https://github.com/jlr/rainbow-delimiters"
+       :description "Get exec-path from shell's PATH for MAC emacs"
+       :type git
+       :url "git://github.com/purcell/exec-path-from-shell.git"
+       :features exec-path-from-shell)
