@@ -1,0 +1,10 @@
+(:name elpy
+       :website "https://github.com/jorgenschaefer/elpy.git"
+       :description "Evil is an extensible vi layer for Emacs. It
+       emulates the main features of Vim, and provides facilities
+       for writing custom extensions."
+       :type git
+       :url "https://github.com/jorgenschaefer/elpy.git"
+       :features elpy
+       :depends (auto-complete fuzzy yasnippet virtualenv highlight-indentation find-file-in-project idomenu nose iedit jedi) 
+       :init (elpy-enable))

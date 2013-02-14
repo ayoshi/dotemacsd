@@ -1,0 +1,6 @@
+(:name nose
+       :website "https://github.com/emacsmirror/nose.git"
+       :description "Nose supprt for Emacs"
+       :type git
+       :url "https://github.com/emacsmirror/nose.git"
+       :features nose)

@@ -1,27 +1,12 @@
-;; ;;; 40_python.el
-;; (defadvice run-python (around run-python-no-sit activate)
-;;   "Suppress absurd sit-for in run-python of python.el"
-;;   (let ((process-launched (or (ad-get-arg 2) ; corresponds to `new`
-;;                               (not (comint-check-proc python-buffer)))))
-;;     (flet ((sit-for (seconds &optional nodisp)
-;;                     (when process-launched
-;;                       (accept-process-output (get-buffer-process python-buffer)))))
-;;       ad-do-it)))
+(elpy-enable)
 
-(setq
- python-shell-interpreter "ipython"
- python-shell-interpreter-args ""
- python-shell-prompt-regexp "In \\[[0-9]+\\]: "
- python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- python-shell-completion-setup-code
- "from IPython.core.completerlib import module_completion"
- python-shell-completion-module-string-code
- "';'.join(module_completion('''%s'''))\n"
- python-shell-completion-string-code
-"';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+;; To use the source code checking facilities, both manual and via flymake, you need to set python-check-command to a command you have installed. Both pyflakes and pep8 are useful (see below). To use both, you can just download the python-check.sh from the elpy git repository and use that:
+;;
+;; wget -O python-check.sh \
+;;     https://raw.github.com/jorgenschaefer/elpy/master/python-check.sh
+;;
+;; Make sure to put that script in your PATH, and add the following to your .emacs to use it:
+(setq python-check-command "python-check.sh")
 
-
-;; Function to set virtualenv PATH
-;; (setq python-shell-virtualenv-path "/path/to/env/")
-
-(add-hook 'python-mode-hook 'jedi:setup)
+;; If you want to use IPython (make sure it's installed), add:
+(elpy-use-ipython)

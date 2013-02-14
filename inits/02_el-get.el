@@ -63,7 +63,7 @@
         smooth-scroll
         python
         exec-path-from-shell
-        jedi
+        elpy
         ))
 
 (el-get 'sync my-packages)
