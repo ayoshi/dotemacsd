@@ -63,6 +63,7 @@
         smooth-scroll
         python
         exec-path-from-shell
+        virtualenv
         elpy
         ))
 
