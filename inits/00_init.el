@@ -125,3 +125,6 @@
 
 ;; Don't show keystrokes in progress - annoys me to no end
 (setq echo-keystrokes 0)
+
+;; Make default copy/paste work
+(cua-mode 1)
