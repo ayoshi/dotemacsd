@@ -65,6 +65,7 @@
         exec-path-from-shell
         virtualenv
         elpy
+        ace-jump-mode
         ))
 
 (el-get 'sync my-packages)

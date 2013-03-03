@@ -1,5 +1,7 @@
 ;; ;;; 01_keybinds.el ---
 
+;; Make leader work in visul mode
+(define-key evil-visual-state-map (kbd ";") evil-leader/map)
 
 ;; keybinding to toggle full screen mode
 (global-set-key (quote [s-return]) (quote toggle-frame-fullscreen))
@@ -122,3 +124,12 @@
 
 
 ;; Saner paredit keybindings
+
+
+
+;; AceJump bindings
+
+(evil-leader/set-key
+  "jc" 'evil-ace-jump-char-mode
+  "jw" 'evil-ace-jump-word-mode
+  "jl" 'evil-ace-jump-line-mode)
