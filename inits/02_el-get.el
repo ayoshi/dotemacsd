@@ -66,6 +66,7 @@
         virtualenv
         elpy
         ace-jump-mode
+        elscreen
         ))
 
 (el-get 'sync my-packages)

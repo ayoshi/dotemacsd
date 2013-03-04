@@ -1,6 +1,5 @@
 ;; ;;; 01_keybinds.el ---
 
-;; Make leader work in visul mode
 (define-key evil-visual-state-map (kbd ";") evil-leader/map)
 
 ;; keybinding to toggle full screen mode
