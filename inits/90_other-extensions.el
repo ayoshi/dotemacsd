@@ -26,3 +26,12 @@
     (when filename
       (find-file (cdr (assoc filename
 			     file-assoc-list))))))
+
+;; Imaxima if installed
+(add-to-list 'load-path "/usr/local/Cellar/maxima/5.28.0/share/maxima/5.28.0/emacs")
+(autoload 'maxima-mode "maxima" "Maxima mode" t)
+(autoload 'imaxima "imaxima" "Frontend for maxima with Image support" t)
+(autoload 'maxima "maxima" "Maxima interaction" t)
+(autoload 'imath-mode "imath" "Imath mode for math formula input" t)
+(setq imaxima-use-maxima-mode-flag t)
+(require 'maxima nil 'noerror)
