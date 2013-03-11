@@ -30,7 +30,7 @@
         multi-term
         yaml-mode
         geiser
-        slime
+        ;; slime - should be installed by quicklisp
         ac-slime
         paredit
         pretty-mode

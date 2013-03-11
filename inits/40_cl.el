@@ -1,4 +1,7 @@
 ;;; 40_cl.el
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+  ;; Replace "sbcl" with the path to your implementation
+  (setq inferior-lisp-program "ccl64")
 
 (eval-after-load "slime"
    '(progn
