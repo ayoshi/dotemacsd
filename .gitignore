@@ -10,6 +10,7 @@ places
 .DS_Store
 tramp
 customize.el
+srecode-map.el
 
 ## directories
 backup/*

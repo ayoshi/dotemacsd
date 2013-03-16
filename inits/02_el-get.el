@@ -67,6 +67,7 @@
         elpy
         ace-jump-mode
         elscreen
+        cedet
         ))
 
 (el-get 'sync my-packages)
