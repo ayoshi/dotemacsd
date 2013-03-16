@@ -66,7 +66,8 @@
           (lambda () (set (make-local-variable 'smart-eval-defun-command) #'geiser-eval-definition)))
 (add-hook 'scheme-mode-hook
           (lambda () (set (make-local-variable 'smart-doc-symbol-at-point-command) #'geiser-doc-symbol-at-point)))
-
+(add-hook 'scheme-mode-hook
+          (lambda () (set (make-local-variable 'smart-eval-region-command) #'geiser-eval-region)))
 ;; python.el ( Python )
 
 (add-hook 'python-mode-hook

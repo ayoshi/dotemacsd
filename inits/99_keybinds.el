@@ -117,6 +117,7 @@
   "eb" 'smart-eval-buffer
   "es" 'smart-eval-last-sexp
   "ed" 'smart-eval-defun
+  "er" 'smart-eval-region
   "?" 'smart-doc-symbol-at-point)
 
 (define-key evil-normal-state-map (kbd "?") 'smart-doc-symbol-at-point)
