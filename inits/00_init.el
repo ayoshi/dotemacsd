@@ -82,6 +82,11 @@
 (setq-default save-place t)
 (setq save-place-file (expand-file-name ".places" user-emacs-directory))
 
+;; Use decent names for the files with the same filename in different directories
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
+
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
 
