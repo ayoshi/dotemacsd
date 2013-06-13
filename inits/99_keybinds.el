@@ -112,7 +112,7 @@
                                         ;(define-key minibuffer-local-must-match-map [escape] 'keyboard-quit)
 ;(define-key minibuffer-local-isearch-map [escape] 'keyboard-quit)
 
-; Make  <Leader>e prefix for eval commands in all modes
+;; Make  <Leader>e prefix for eval commands in all modes
 (evil-leader/set-key
   "eb" 'smart-eval-buffer
   "es" 'smart-eval-last-sexp
@@ -125,7 +125,9 @@
 
 ;; Saner paredit keybindings
 
-
+;; Working with splits
+(evil-leader/set-key "|" 'split-window-horizontally )
+(evil-leader/set-key "\\" 'split-window-vertically)
 
 ;; AceJump bindings
 
