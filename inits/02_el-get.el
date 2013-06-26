@@ -12,8 +12,10 @@
 (add-to-list 'el-get-recipe-path
              "~/.emacs.d/el-get-local-recipes")
 
+
 (setq my-packages
       '(el-get
+        elscreen
         undo-tree
         evil
         evil-leader
@@ -22,6 +24,8 @@
         fringe-helper
         helm
         solarized-theme
+        twilight-bright-theme
+        twilight-anti-bright-theme
         expand-region
         org-mode
         markdown-mode
@@ -66,9 +70,11 @@
         virtualenv
         elpy
         ace-jump-mode
-        elscreen
         cedet
+        js2-mode
+        base16-theme
         ))
 
 (el-get 'sync my-packages)
+
 ;;; 02_el-get.el ends here

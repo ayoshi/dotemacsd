@@ -1,0 +1,5 @@
+(:name base16-theme
+       :type github
+       :pkgname "neil477/base16-emacs"
+       :description "Base16 themes for Emacs"
+       :prepare (add-to-list 'custom-theme-load-path default-directory))
