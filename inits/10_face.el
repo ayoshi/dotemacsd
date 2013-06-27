@@ -24,5 +24,14 @@
 (setq custom-theme-directory "~/.emacs.d/themes/")
 (load-theme 'solarized-dark)
 
+;; (set-face-attribute 'default nil
+                ;; :family "Inconsolata" :height 140 :weight 'normal)
+
+;; (set-face-attribute 'default nil
+                ;; :family "Meslo LG S for Powerline" :height 140 :weight 'normal)
+
 (set-face-attribute 'default nil
-                :family "Inconsolata" :height 140 :weight 'normal)
+                :family "Source Code Pro for Powerline" :height 140 :weight 'normal)
+
+;; (set-face-attribute 'default nil
+                    ;; :family "Liberation Mono for Powerline" :height 140 :weight 'normal)
