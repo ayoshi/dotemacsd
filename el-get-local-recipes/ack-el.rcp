@@ -1,0 +1,5 @@
+(:name ack-el
+       :type github
+       :pkgname "leoliu/ack-el"
+       :description "Ack el"
+       :prepare (add-to-list 'custom-theme-load-path default-directory))

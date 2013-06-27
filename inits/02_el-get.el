@@ -73,6 +73,7 @@
         cedet
         js2-mode
         base16-theme
+        ;;ack-el
         ))
 
 (el-get 'sync my-packages)
