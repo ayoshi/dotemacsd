@@ -12,46 +12,61 @@
 (add-to-list 'el-get-recipe-path
              "~/.emacs.d/el-get-local-recipes")
 
-
-(setq my-packages
-      '(el-get
-        elscreen
-        undo-tree
+(setq base-packages
+      '(
+        el-get
         evil
         evil-leader
         evil-surround
         evil-nerd-commenter
-        fringe-helper
-        helm
+        ))
+
+(setq lang-mode-packages
+      '(
+        markdown-mode
+        yaml-mode
+        clojure-mode
+        rhtml-mode
+        scss-mode
+        haskell-mode
+        js2-mode
+        clojure-mode
+        ))
+
+(setq theme-packages
+      '(
         solarized-theme
         twilight-bright-theme
         twilight-anti-bright-theme
+        base16-theme
+        ))
+
+(setq my-packages
+      '(
+        undo-tree
+        pretty-mode
+        fringe-helper
+        helm
         expand-region
-        org-mode
-        markdown-mode
+        ;;org-mode
         yasnippet
-        shell-command
         multi-term
-        yaml-mode
         geiser
         ;; slime - should be installed by quicklisp
         ac-slime
         paredit
-        pretty-mode
-        nyan-mode
+        shell-command
+        ;;nyan-mode
         rainbow-delimiters-github
         rainbow-mode
         rinari
-        rhtml-mode
         ;;ruby-dev
         zencoding-mode
-        moz-repl
-        scss-mode
+        ;;moz-repl
         smart-tab
         ibuffer-vc
         ruby-block
         ruby-end
-        haskell-mode
         hideshowvis
         popwin
         anything-replace-string
@@ -65,17 +80,14 @@
         smex
         anything-config
         smooth-scroll
-        python
+        ;;python
         exec-path-from-shell
-        virtualenv
-        elpy
+        ;;virtualenv
+        ;;elpy
         ace-jump-mode
-        cedet
-        js2-mode
-        base16-theme
         ;;ack-el
         ))
 
-(el-get 'sync my-packages)
+(el-get 'sync base-packages lang-mode-packages theme-packages my-packages)
 
 ;;; 02_el-get.el ends here
